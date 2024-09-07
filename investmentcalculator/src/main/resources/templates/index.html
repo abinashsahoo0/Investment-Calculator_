@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator</title>
+    <link rel = "stylesheet" href= "style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Investment Calculator</h1>
+    </header>
+    <section class="form-section">
+        <form action="/calculate" method="post">
+            <div class="input-items">
+                <div class="form-group">
+                    <label for="starting-year">Starting year</label>
+
+                    <input type="text" id="starting-year" placeholder="ex:2000" name = "startingYear" autofocus>
+
+                </div>
+                <div class="form-group">
+                    <label for="initial-investment">Initial Investment</label>
+
+                    <input type="text" id="initial-investment" placeholder="ex:12000" name ="intialInvestment" />
+                </div>
+                <div class="form-group">
+                    <label for="yearly-investment">Yearly investment</label>
+
+                    <input type="text" id="yearly-investment" placeholder="ex:2000" name = "yearlyInvestment" />
+                </div>
+                <div class="form-group">
+                    <label for="investment-term">Investment term(in year)</label>
+
+                    <input type="text" id="investment-term" placeholder="ex:3" name =" investmentTerm" />
+                </div>
+                <div class="form-group">
+                    <label for="return-rate">Return rate(in percentage)</label>
+
+                    <input type="text" id="return-rate" placeholder="ex:12" name = "returnRate"/>
+                </div>
+                <div class="radio-button">
+                    <p>Interest mode</p>
+                    <div class="interest-mode">
+                        <label for ="simple-btn">SIMPLE</label>
+                    <input type ="radio" value= "SIMPLE" name="interestMode" id = "simple-btn" checked>
+
+                    <label for="compound-btn">COMPOUND</label>
+                    <input type = "radio" value="COMPOUND" id = "compound-btn" name = "interestMode">
+
+
+                    </div>
+                    
+                </div>
+
+
+            </div>
+            <div class="submit-btn">
+                <input type = "submit">
+            </div>
+
+        </form>
+    </section>
+    <section class="table-section" data-th-if="${response != null}" >
+        <table>
+            <caption 
+            data-th-text="|Year wise return(${response.interestMode} calculation)|"
+            ></caption>
+
+        </table>
+    </section>
+</body>
+
+</html>
